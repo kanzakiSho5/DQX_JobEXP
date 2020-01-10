@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+    <title>ドラクエ10職業必要経験値計算機</title>
+</head>
+<body>
+    <h1>ドラクエ10職業必要経験値計算機</h1>
+    <div class="container">
+        
+        <ul class="inputForm">
+            <li>
+                <dl>
+                    <dd><label for="startJobLev">今のレベル</label></dd>
+                    <dt><input id="startJobLev" type="number" alt="startJob" value="1"></dt>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dd><label for="endJobLev">目標のレベル</label></dd>
+                    <dt><input id="endJobLev" type="number" alt="endJob" value="10"></dt>
+                </dl>
+            </li>
+        </ul>
+        <div class="retDis" id="retDis"></div>
+    </div>
+    <button class="retBtn" id="retBtn">計算</button>
+</body>
+</html>
