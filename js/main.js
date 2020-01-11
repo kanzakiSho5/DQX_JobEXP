@@ -1,6 +1,6 @@
 ﻿$(function(){
     
-    
+    const $JobSelect = $("#JobSelect");
     const $startVal = $("#startJobLev");
     const $endVal = $("#endJobLev");
     const $retDis = $("#retDis");
@@ -230,6 +230,27 @@
         959346,
         959346
     ];
+    const JobStat = {
+        "戦士":true,
+        "僧侶":true,
+        "魔法使い":true,
+        "武闘家":true,
+        "盗賊":true,
+        "旅芸人":true,
+        "バトルマスター":false,
+        "パラディン":false,
+        "魔法戦士":false,
+        "レンジャー":false,
+        "賢者":false,
+        "スーパースター":false,
+        "まもの使い":false,
+        "どうぐ使い":false,
+        "踊り子":false,
+        "占い師":false,
+        "天地雷鳴士":false,
+        "遊び人":false,
+        "デスマスター":false
+    };
     
     var isFirstJob = true;
     var startVal = 0;
@@ -247,6 +268,11 @@
         }
         $retDis.text(ret);
     }
+    
+    $JobSelect.on("click", function(e){
+        isFirstJob = JobStat[$JobSelect.val()];
+        console.log(isFirstJob);
+    });
     
     $startVal.on("change keyup", function(e){
         let val = parseInt($startVal.val());
@@ -271,6 +297,11 @@
     function init(){
         startVal = $startVal.val();
         endVal = $endVal.val();
+        let i = 0;
+        for(var key in JobStat){
+            i++;
+            $JobSelect.append("<option value=\""+ key +"\">"+ key +"</option>");
+        }
     }
     
     init();
