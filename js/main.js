@@ -4,6 +4,8 @@
     const $startVal = $("#startJobLev");
     const $endVal = $("#endJobLev");
     const $retDis = $("#retDis");
+    const $retDisAngel = $("#retDis-angel");
+    const $retDisSkill = $("#retDis-Skill");
     const $retBtn = $("#retBtn");
     
     const firstLevList = [
@@ -230,6 +232,342 @@
         959346,
         959346
     ];
+    const shieldJobSkill = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        59,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        30,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        33,
+        0,
+        0,
+        0,
+        0,
+        17,
+        0,
+        0,
+        0,
+        0,
+        19,
+    ];
+    const nonShieldJobSkill = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        78,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        59,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        22,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        23,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        23,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        27,
+        0,
+        0,
+        0,
+        0,
+        13,
+        0,
+        0,
+        0,
+        0,
+        17,
+    ];
+    const asobiJobSkill = [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        137,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        32,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        33,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        34,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        34,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        42,
+        0,
+        0,
+        0,
+        0,
+        18,
+        0,
+        0,
+        0,
+        0,
+        20,
+    ];
     const JobStat = {
         "戦士":true,
         "僧侶":true,
@@ -251,26 +589,87 @@
         "遊び人":false,
         "デスマスター":false
     };
+    const JobSkill= {
+        "戦士":true,
+        "僧侶":true,
+        "魔法使い":true,
+        "武闘家":false,
+        "盗賊":true,
+        "旅芸人":true,
+        "バトルマスター":false,
+        "パラディン":true,
+        "魔法戦士":true,
+        "レンジャー":true,
+        "賢者":true,
+        "スーパースター":true,
+        "まもの使い":false,
+        "どうぐ使い":true,
+        "踊り子":false,
+        "占い師":true,
+        "天地雷鳴士":true,
+        "遊び人":"asobi",
+        "デスマスター":false
+    };
     
     var isFirstJob = true;
+    var skillType = true;
     var startVal = 0;
     var endVal = 0;
     
     function Calculation(){
-        let ret = 0;
+        //lv計算
+        let retLv = 0;
+        let retAngel = 0;
         for(let i = 0, s = startVal; s < endVal; s++){
             i++;
-            if(isFirstJob)
-                ret += firstLevList[s];
-            else
-                ret += addLevList[s];
-            console.log(ret);
+            if(startVal >= 110 || endVal > 110)
+                break;
+            if(isFirstJob) {
+                retLv += firstLevList[s];
+                if(s < 90)
+                    retAngel += (firstLevList[s] / 3);
+                else
+                    retAngel += firstLevList[s];
+            }else {
+                retLv += addLevList[s];
+                if(s < 90)
+                    retAngel += (addLevList[s] / 3);
+                else 
+                    retAngel += addLevList[s];
+            }
+            console.log(retLv);
         }
-        $retDis.text(ret);
+        
+        //Skill計算
+        let retSkill = 0;
+        let AllSkill = 0;
+        for(let i = 0; i < endVal; i++){
+            if(skillType == "asobi"){
+                AllSkill += asobiJobSkill[i];
+                if(i > startVal)
+                    retSkill += asobiJobSkill[i];
+                continue;
+            }
+            
+            if(skillType){
+                AllSkill += shieldJobSkill[i];
+                if(i > startVal)
+                    retSkill += shieldJobSkill[i];
+            }
+            else {
+                AllSkill += nonShieldJobSkill[i];
+                if(i > startVal)
+                    retSkill += nonShieldJobSkill[i];
+            }
+        }
+        $retDis.text(retLv);
+        $retDisAngel.text(Math.floor(retAngel));
+        $retDisSkill.text(""+ AllSkill +"(+"+ retSkill +")");
     }
     
     $JobSelect.on("click", function(e){
         isFirstJob = JobStat[$JobSelect.val()];
+        skillType = JobSkill[$JobSelect.val()];
         console.log(isFirstJob);
     });
     

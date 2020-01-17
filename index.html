@@ -5,6 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
     <script
         src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -45,8 +46,44 @@
                 </dl>
             </li>
         </ul>
-        <div class="retDis" id="retDis"></div>
+        <dl>
+            <dd>必要経験値：</dd>
+            <dt>
+                <div class="retDis" id="retDis">0</div>
+            </dt>
+        </dl>
+        <dl>
+            <dd>エンゼルスライム帽込み実質必要経験値：</dd>
+            <dt>
+                <div class="retDis" id="retDis-angel">0</div>
+            </dt>
+        </dl>
+        <dl>
+            <dd>スキルポイント数(+増加量)：</dd>
+            <dt>
+                <div class="retDis" id="retDis-Skill">0</div>
+            </dt>
+        </dl>
+        <button class="retBtn" id="retBtn">計算</button>
+        <div class="update-note">
+            <h2>更新情報</h2>
+            <ul>
+                <li>
+                    <dl>
+                        <dd>1/17更新</dd>
+                        <dt>
+                            <ul>
+                                <li>スマートフォン向けにUIを調整</li>
+                                <li>エンゼルスライム帽装備時の実質経験値を追加 <br>
+                                    (lv90までの経験値を1/3に削減)</li>
+                                <li>獲得スキルポイント数を追加 <br>
+                                    (暫定的に30,50,60,70,80,90,100,105,110レベル時のスキルポイントから計算)</li>
+                            </ul>
+                        </dt>
+                    </dl>
+                </li>
+            </ul>
+        </div>
     </div>
-    <button class="retBtn" id="retBtn">計算</button>
 </body>
 </html>
