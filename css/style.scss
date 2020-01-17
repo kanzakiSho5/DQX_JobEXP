@@ -1,0 +1,61 @@
+﻿$default-font-size:20px;
+$large-font-size:30px;
+
+.inputForm {
+  li {
+    list-style: none;
+  }
+}
+h1{
+  text-align: center;
+}
+
+@media screen and (max-width: 450px){
+  h1{
+    margin: {
+      bottom: 5px;
+    };
+  }
+  .container{
+    width: 100%;
+    .inputForm{
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      li{
+        dd{
+          margin: 0;
+          width: 100%;
+          font-size: $default-font-size;
+        }
+        
+        select, input{
+          font-size: $default-font-size;
+        }
+      }
+    }
+    .retDis{
+      margin:{
+        top:5px;
+        bottom: 5px;
+      };
+      font-size: $large-font-size;
+      text-align: center;
+    }
+    .retBtn{
+      font-size: $default-font-size;
+      width: 100%;
+    }
+    
+    .update-note{
+      ul{
+        dd{
+          margin: {
+            left:0;
+          };
+        }
+      }
+    }
+  }
+}
