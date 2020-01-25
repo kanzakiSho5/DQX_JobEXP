@@ -10,6 +10,11 @@ h1{
   text-align: center;
 }
 
+.errorDis{
+  color: red;
+  
+}
+
 @media screen and (max-width: 450px){
   h1{
     margin: {
@@ -34,6 +39,11 @@ h1{
           font-size: $default-font-size;
         }
       }
+    }
+    
+    .errorDis{
+      font-size: $default-font-size;
+      text-align: center;
     }
     .retDis{
       margin:{

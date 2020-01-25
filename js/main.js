@@ -7,6 +7,7 @@
     const $retDisAngel = $("#retDis-angel");
     const $retDisSkill = $("#retDis-Skill");
     const $retBtn = $("#retBtn");
+    const $errorDis = $("#errorDis");
     
     const firstLevList = [
         0,
@@ -234,35 +235,35 @@
     ];
     const shieldJobSkill = [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        78,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        1,
+        3,
+        4,
+        1,
+        4,
+        4,
+        1,
+        4,
+        4,
+        1,
+        3,
+        4,
+        1,
+        4,
+        4,
+        1,
+        5,
+        5,
+        1,
         0,
         0,
         0,
@@ -331,50 +332,50 @@
         0,
         0,
         0,
-        0,
-        33,
-        0,
-        0,
-        0,
-        0,
-        17,
-        0,
-        0,
-        0,
-        0,
-        19,
+        28,
+        5,
+        3,
+        3,
+        4,
+        3,
+        4,
+        4,
+        3,
+        4,
+        3,
+        5
     ];
     const nonShieldJobSkill = [
         0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        78,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2,
+        3,
+        3,
+        1,
+        3,
+        4,
+        1,
+        4,
+        4,
+        1,
+        4,
+        4,
+        1,
+        3,
+        4,
+        1,
+        4,
+        4,
+        1,
+        5,
+        5,
+        1,
         0,
         0,
         0,
@@ -610,6 +611,7 @@
         "遊び人":"asobi",
         "デスマスター":false
     };
+    const MaxLevel = 110;
     
     var isFirstJob = true;
     var skillType = true;
@@ -617,6 +619,11 @@
     var endVal = 0;
     
     function Calculation(){
+        if(endVal > MaxLevel || startVal >= MaxLevel){
+            $errorDis.text("レベルの最大値は、110までだよ～！");
+            return;
+        }
+        $errorDis.text("");
         //lv計算
         let retLv = 0;
         let retAngel = 0;
@@ -637,7 +644,7 @@
                 else 
                     retAngel += addLevList[s];
             }
-            console.log(retLv);
+            //console.log(retLv);
         }
         
         //Skill計算
@@ -653,7 +660,7 @@
             
             if(skillType){
                 AllSkill += shieldJobSkill[i];
-                if(i > startVal)
+                if(i >= startVal)
                     retSkill += shieldJobSkill[i];
             }
             else {
@@ -670,14 +677,14 @@
     $JobSelect.on("click", function(e){
         isFirstJob = JobStat[$JobSelect.val()];
         skillType = JobSkill[$JobSelect.val()];
-        console.log(isFirstJob);
+        //console.log(isFirstJob);
     });
     
     $startVal.on("change keyup", function(e){
         let val = parseInt($startVal.val());
         if(startVal != val){
             startVal = val;
-            console.log("startVal = "+ val);
+            //console.log("startVal = "+ val);
         }
     });
     
@@ -685,7 +692,7 @@
         let val = parseInt($endVal.val());
         if(endVal != val){
             endVal = val;
-            console.log("endVal = "+ val);
+            //console.log("endVal = "+ val);
         }
     });
     

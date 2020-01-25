@@ -6,6 +6,10 @@ h1 {
   text-align: center;
 }
 
+.errorDis {
+  color: red;
+}
+
 @media screen and (max-width: 450px) {
   h1 {
     margin-bottom: 5px;
@@ -27,6 +31,10 @@ h1 {
   }
   .container .inputForm li select, .container .inputForm li input {
     font-size: 20px;
+  }
+  .container .errorDis {
+    font-size: 20px;
+    text-align: center;
   }
   .container .retDis {
     margin-top: 5px;
